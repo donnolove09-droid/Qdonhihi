@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: qdonenlite
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_UID
+        sync: false
+      - key: API_PASSWORD
+        sync: false
+      - key: API_BASE_URL
+        value: https://flash-player-info-v1.vercel.app
+      - key: BOT_DISPLAY_NAME
+        value: QDONENLITE
